@@ -7,4 +7,4 @@ DB_CONFIG = {
     "password": "123456"     # password PostgreSQL
 }
 
-JWT_SECRET_KEY = "duongcute2296cuongxauxi@"
+# JWT_SECRET_KEY = "duongcute2296cuongxauxi@"
