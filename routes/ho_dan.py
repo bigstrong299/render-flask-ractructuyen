@@ -64,7 +64,7 @@ def get_thongtin_all():
                 t.thang_nam, 
                 ST_AsGeoJSON(d.geom) AS geom  -- Chuyển đổi cột geom thành GeoJSON
             FROM ho_dan d join thanh_toan t on d.id_hodan = t.id_hodan
-            # LIMIT 100
+            
         """)
         rows = cur.fetchall()
 
