@@ -15,12 +15,12 @@ import psycopg2
 import urllib.parse as urlparse
 
 def get_connection():
-    db_url = os.getenv("DATABASE_URL")
-    if db_url is None:
-        raise Exception("DATABASE_URL is not set")
+    db_url = os.environ.get('DATABASE_URL')
+    if not db_url:
+        raise Exception("DATABASE_URL không được thiết lập trong biến môi trường.")
 
-    # Parse URL từ DATABASE_URL
     url = urlparse.urlparse(db_url)
+
     return psycopg2.connect(
         database=url.path[1:],
         user=url.username,
@@ -28,4 +28,5 @@ def get_connection():
         host=url.hostname,
         port=url.port
     )
+
 
