@@ -20,7 +20,7 @@ def login():
         """, (username, password))
         result = cur.fetchone()
         if result:
-            id_nv, chuc_vu  = result
+            id_nv, chuc_vu, ho_ten  = result
             return jsonify({
                 'message': 'Đăng nhập thành công',
                 'id_nv': id_nv,
