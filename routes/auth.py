@@ -14,7 +14,7 @@ def login():
     try:
         cur = conn.cursor()
         cur.execute("""   
-            SELECT u.id_nv, n.chuc_vu
+            SELECT u.id_nv, n.chuc_vu, n.ho_ten
             FROM users u join nhan_vien n on u.id_nv = n.id_nv
             WHERE username = %s AND password = crypt(%s, password)
         """, (username, password))
@@ -25,6 +25,7 @@ def login():
                 'message': 'Đăng nhập thành công',
                 'id_nv': id_nv,
                 'chuc_vu': chuc_vu,
+                'ho_ten': ho_ten,
             })
         else:
             return jsonify({'message': 'Sai tài khoản hoặc mật khẩu'}), 401
